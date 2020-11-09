@@ -8,9 +8,11 @@ use App\Models\AlatModel;
 class Alat extends BaseController
 {
     protected $alatModel;
+    protected $builder;
     public function __construct()
     {
         $this->alatModel = new AlatModel();
+        $this->builder = $this->alatModel->builder();
     }
 
     public function index()
@@ -18,7 +20,7 @@ class Alat extends BaseController
     {
         $data = [
             'tittle' => 'Alat',
-            'alat' => $this->alatModel->findAll()
+            'alat' => $this->alatModel->orderBy('id', 'DESC')->findAll()
         ];
 
         return view('alat/index', $data);

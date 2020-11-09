@@ -28,7 +28,7 @@ class Auth extends BaseController
         if ($cek != null) {
             if ($cek['nis'] == $nis && $cek['password'] == $password) {
                 session()->set('nama', $cek['nama']);
-                session()->set('kode_alat', $cek['kode_alat']);
+                // session()->set('kode_alat', $cek['kode_alat']);
                 session()->set('nis', $cek['nis']);
                 session()->set('level', $cek['level']);
                 session()->set('foto', $cek['foto']);

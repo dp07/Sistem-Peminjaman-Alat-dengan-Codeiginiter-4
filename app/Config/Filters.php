@@ -25,7 +25,7 @@ class Filters extends BaseConfig
 			// 'csrf',
 		],
 		'after'  => [
-			'authFilter' => ['except' => ['home', 'home/*', 'user', 'user/*', 'alat', 'alat/*', 'peminjman', 'peminjaman/*']],
+			'authFilter' => ['except' => ['home', 'home/*', 'user', 'user/*', 'alat', 'alat/*', 'peminjman', 'peminjaman/*', 'pengembalian', 'pengembalian/*']],
 			'toolbar'
 			//'honeypot'
 		],

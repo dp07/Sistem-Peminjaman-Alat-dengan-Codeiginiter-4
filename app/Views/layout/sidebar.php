@@ -62,7 +62,7 @@
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a href="/alat" class="nav-link">
+                          <a href="/pengembalian/index" class="nav-link">
                               <i class="far fas fa-long-arrow-alt-down nav-icon"></i>
                               <p>Pengembalian</p>
                           </a>

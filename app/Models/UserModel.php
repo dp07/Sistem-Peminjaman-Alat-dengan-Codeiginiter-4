@@ -14,4 +14,9 @@ class UserModel extends Model
     {
         return $this->where(['nis' => $nis, 'password' => $password])->first();
     }
+
+    public function search($keyword)
+    {
+        return  $this->table('user')->like('nama', $keyword)->orLike('nis', $keyword);
+    }
 }

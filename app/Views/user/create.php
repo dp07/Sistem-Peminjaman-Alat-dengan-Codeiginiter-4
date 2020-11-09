@@ -51,8 +51,8 @@
                         <div class="form-group">
                             <label>Level</label>
                             <select class="form-control" name="level">
-                                <option value="1">1</option>
                                 <option value="2">2</option>
+                                <option value="1">1</option>
                             </select>
                         </div>
                         <input type="hidden" name="username" value="user">

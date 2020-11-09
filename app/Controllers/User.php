@@ -7,22 +7,38 @@ use \App\Models\UserModel;
 class User extends BaseController
 {
     protected $userModel;
+    protected $builder;
+    protected $pager;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->builder = $this->userModel->builder();
+        $this->pager = \Config\Services::pager();
     }
 
     public function index()
     {
         // $builder = $this->userModel->builder();
+        $currentPage = $this->request->getVar('page_user') ? $this->request->getVar('page_user') : 1;
+        // $user = $this->userModel->orderBy('id', 'DESC')->paginate(10, 'user');
 
-        $user = $this->userModel->orderBy('id', 'asc')->findAll();
+        // searching
+        $keyword = $this->request->getVar('keyword');
+
+        if ($keyword) {
+            $user = $this->userModel->search($keyword);
+        } else {
+            $user = $this->userModel;
+        }
+
         // $user = $user->orderBy('id', "DESC");
         // dd($user);
         $data = [
             'tittle' => 'User',
-            'user' => $user
+            'user' => $user->paginate(10, 'user'),
+            'pager' => $this->userModel->pager,
+            'currentPage' => $currentPage
         ];
 
         return view('user/index', $data);
